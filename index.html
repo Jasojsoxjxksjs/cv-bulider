@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose from professional CV templates">
+    <title>Choose Your Template - CV Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="templates.css">
+    <style>
+        .templates-page {
+            min-height: 100vh;
+            padding: var(--space-2xl) var(--space-lg);
+        }
+
+        .templates-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .templates-header h1 {
+            font-family: var(--font-display);
+            font-size: var(--font-size-4xl);
+            color: white;
+            margin-bottom: var(--space-md);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .templates-header p {
+            font-size: var(--font-size-lg);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-2xl);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .template-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .template-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .template-preview {
+            height: 500px;
+            overflow: hidden;
+            background: white;
+            position: relative;
+        }
+
+        .template-preview-content {
+            padding: var(--space-xl);
+            transform: scale(0.85);
+            transform-origin: top left;
+            width: 117.6%;
+        }
+
+        .template-info {
+            padding: var(--space-xl);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .template-name {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .template-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .template-tag {
+            padding: var(--space-xs) var(--space-md);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .use-template-btn {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .use-template-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: var(--space-xl);
+            padding: var(--space-sm) var(--space-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="templates-page">
+        <a href="index.html" class="back-link">← Back to Templates</a>
+
+        <div class="templates-header">
+            <h1>Choose Your Template</h1>
+            <p>Select a professional template to get started</p>
+        </div>
+
+        <div class="templates-grid">
+            <!-- Modern Template -->
+            <div class="template-card" data-template="modern">
+                <div class="template-preview">
+                    <div class="template-preview-content">
+                        <div class="cv-preview" data-template="modern">
+                            <div class="cv-header">
+                                <h1 class="cv-name">John Doe</h1>
+                                <p class="cv-title">Senior Software Engineer</p>
+                                <div class="cv-contact">
+                                    <span>john@example.com</span>
+                                    <span>+1 234 567 8900</span>
+                                    <span>New York, USA</span>
+                                </div>
+                            </div>
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Work Experience</h2>
+                                <div class="cv-item">
+                                    <div class="cv-item-header">
+                                        <h3 class="cv-item-title">Senior Developer</h3>
+                                        <span class="cv-item-date">2020 - Present</span>
+                                    </div>
+                                    <p class="cv-item-subtitle">Tech Company Inc.</p>
+                                    <p class="cv-item-description">Leading development of innovative solutions...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-name">Modern</h3>
+                    <p class="template-description">Bold and colorful design with gradient header. Perfect for creative
+                        professionals.</p>
+                    <div class="template-features">
+                        <span class="template-tag">Colorful</span>
+                        <span class="template-tag">Creative</span>
+                        <span class="template-tag">Eye-catching</span>
+                    </div>
+                    <button class="use-template-btn" onclick="useTemplate('modern')">Use This Template</button>
+                </div>
+            </div>
+
+            <!-- Classic Template -->
+            <div class="template-card" data-template="classic">
+                <div class="template-preview">
+                    <div class="template-preview-content">
+                        <div class="cv-preview" data-template="classic">
+                            <div class="cv-header">
+                                <h1 class="cv-name">John Doe</h1>
+                                <p class="cv-title">Senior Software Engineer</p>
+                                <div class="cv-contact">
+                                    <span>john@example.com</span>
+                                    <span>+1 234 567 8900</span>
+                                    <span>New York, USA</span>
+                                </div>
+                            </div>
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Work Experience</h2>
+                                <div class="cv-item">
+                                    <div class="cv-item-header">
+                                        <h3 class="cv-item-title">Senior Developer</h3>
+                                        <span class="cv-item-date">2020 - Present</span>
+                                    </div>
+                                    <p class="cv-item-subtitle">Tech Company Inc.</p>
+                                    <p class="cv-item-description">Leading development of innovative solutions...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-name">Classic</h3>
+                    <p class="template-description">Traditional serif design with elegant typography. Ideal for formal
+                        positions.</p>
+                    <div class="template-features">
+                        <span class="template-tag">Professional</span>
+                        <span class="template-tag">Traditional</span>
+                        <span class="template-tag">Elegant</span>
+                    </div>
+                    <button class="use-template-btn" onclick="useTemplate('classic')">Use This Template</button>
+                </div>
+            </div>
+
+            <!-- Minimal Template -->
+            <div class="template-card" data-template="minimal">
+                <div class="template-preview">
+                    <div class="template-preview-content">
+                        <div class="cv-preview" data-template="minimal">
+                            <div class="cv-header">
+                                <h1 class="cv-name">John Doe</h1>
+                                <p class="cv-title">Senior Software Engineer</p>
+                                <div class="cv-contact">
+                                    <span>john@example.com</span>
+                                    <span>+1 234 567 8900</span>
+                                    <span>New York, USA</span>
+                                </div>
+                            </div>
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Work Experience</h2>
+                                <div class="cv-item">
+                                    <div class="cv-item-header">
+                                        <h3 class="cv-item-title">Senior Developer</h3>
+                                        <span class="cv-item-date">2020 - Present</span>
+                                    </div>
+                                    <p class="cv-item-subtitle">Tech Company Inc.</p>
+                                    <p class="cv-item-description">Leading development of innovative solutions...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-name">Minimal</h3>
+                    <p class="template-description">Clean and simple design with focus on content. Great for modern
+                        professionals.</p>
+                    <div class="template-features">
+                        <span class="template-tag">Clean</span>
+                        <span class="template-tag">Simple</span>
+                        <span class="template-tag">Modern</span>
+                    </div>
+                    <button class="use-template-btn" onclick="useTemplate('minimal')">Use This Template</button>
+                </div>
+            </div>
+
+            <!-- ATS Template -->
+            <div class="template-card" data-template="ats">
+                <div class="template-preview">
+                    <div class="template-preview-content">
+                        <div class="cv-preview" data-template="ats">
+                            <div class="cv-header">
+                                <h1 class="cv-name">John Doe</h1>
+                                <p class="cv-title">Senior Software Engineer</p>
+                                <div class="cv-contact">
+                                    <span>john@example.com</span>
+                                    <span>+1 234 567 8900</span>
+                                    <span>New York, USA</span>
+                                </div>
+                            </div>
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Work Experience</h2>
+                                <div class="cv-item">
+                                    <div class="cv-item-header">
+                                        <h3 class="cv-item-title">Senior Developer</h3>
+                                        <span class="cv-item-date">2020 - Present</span>
+                                    </div>
+                                    <p class="cv-item-subtitle">Tech Company Inc.</p>
+                                    <p class="cv-item-description">Leading development of innovative solutions...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-name">ATS Friendly</h3>
+                    <p class="template-description">Optimized for Applicant Tracking Systems. Ensures your CV is parsed
+                        correctly.</p>
+                    <div class="template-features">
+                        <span class="template-tag">ATS Optimized</span>
+                        <span class="template-tag">Parser Friendly</span>
+                        <span class="template-tag">High Success Rate</span>
+                    </div>
+                    <button class="use-template-btn" onclick="useTemplate('ats')">Use This Template</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function useTemplate(templateName) {
+            // Save selected template to localStorage
+            localStorage.setItem('selectedTemplate', templateName);
+            // Redirect to builder page
+            window.location.href = 'builder.html';
+        }
+    </script>
+</body>
+
+</html>

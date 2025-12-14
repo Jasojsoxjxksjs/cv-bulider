@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create professional CVs with our modern, easy-to-use CV builder">
+    <title>CV Builder - Create Your Professional Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="templates.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn btn-icon btn-secondary" title="Toggle Dark Mode">
+            🌙
+        </button>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>✨ CV Builder</h1>
+            <p>Create your professional resume in minutes</p>
+        </header>
+
+        <!-- Controls -->
+        <div class="controls">
+            <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">
+                🎨 Browse Templates
+            </a>
+            <button id="exportPDF" class="btn btn-primary">
+                📄 Export as PDF
+            </button>
+            <button id="saveData" class="btn btn-success">
+                💾 Save Progress
+            </button>
+            <button id="loadData" class="btn btn-secondary">
+                📂 Load Data
+            </button>
+            <button id="clearData" class="btn btn-danger">
+                🗑️ Clear All
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Form Section -->
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2 class="card-title">Build Your CV</h2>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-line">
+                            <div class="progress-line-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-step active" data-step="1">
+                            <div class="progress-step-circle">1</div>
+                            <span class="progress-step-label">Personal Info</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="progress-step-circle">2</div>
+                            <span class="progress-step-label">Experience</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="progress-step-circle">3</div>
+                            <span class="progress-step-label">Education</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="progress-step-circle">4</div>
+                            <span class="progress-step-label">Skills</span>
+                        </div>
+                        <div class="progress-step" data-step="5">
+                            <div class="progress-step-circle">5</div>
+                            <span class="progress-step-label">Additional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="cvForm">
+                    <div class="form-pages">
+                        <!-- Page 1: Personal Information -->
+                        <div class="form-page active" data-page="1">
+                            <section class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="section-icon">👤</span>
+                                    Personal Information
+                                </h3>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" class="form-input" placeholder="John Doe" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="jobTitle">Job Title *</label>
+                                    <input type="text" id="jobTitle" class="form-input"
+                                        placeholder="Senior Software Engineer" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email *</label>
+                                        <input type="email" id="email" class="form-input" placeholder="john@example.com"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone</label>
+                                        <input type="tel" id="phone" class="form-input" placeholder="+1 234 567 8900">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="location">Location</label>
+                                        <input type="text" id="location" class="form-input" placeholder="New York, USA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="website">Website/LinkedIn</label>
+                                        <input type="url" id="website" class="form-input"
+                                            placeholder="linkedin.com/in/johndoe">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="summary">Professional Summary</label>
+                                    <textarea id="summary" class="form-textarea"
+                                        placeholder="Brief overview of your professional background and key achievements..."></textarea>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- Page 2: Work Experience -->
+                        <div class="form-page" data-page="2">
+                            <section class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="section-icon">💼</span>
+                                    Work Experience
+                                </h3>
+
+                                <div id="experienceContainer"></div>
+
+                                <button type="button" id="addExperience" class="btn btn-secondary btn-small">
+                                    ➕ Add Experience
+                                </button>
+                            </section>
+                        </div>
+
+                        <!-- Page 3: Education -->
+                        <div class="form-page" data-page="3">
+                            <section class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="section-icon">🎓</span>
+                                    Education
+                                </h3>
+
+                                <div id="educationContainer"></div>
+
+                                <button type="button" id="addEducation" class="btn btn-secondary btn-small">
+                                    ➕ Add Education
+                                </button>
+                            </section>
+                        </div>
+
+                        <!-- Page 4: Skills -->
+                        <div class="form-page" data-page="4">
+                            <section class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="section-icon">⚡</span>
+                                    Skills
+                                </h3>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="skillInput">Add Skills</label>
+                                    <div class="form-row">
+                                        <input type="text" id="skillInput" class="form-input"
+                                            placeholder="e.g., JavaScript, Project Management">
+                                        <button type="button" id="addSkill"
+                                            class="btn btn-primary btn-small">Add</button>
+                                    </div>
+                                </div>
+
+                                <div id="skillsContainer" class="skills-container"></div>
+                            </section>
+                        </div>
+
+                        <!-- Page 5: Additional Information -->
+                        <div class="form-page" data-page="5">
+                            <section class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="section-icon">📋</span>
+                                    Additional Information
+                                </h3>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="certifications">Certifications</label>
+                                    <textarea id="certifications" class="form-textarea"
+                                        placeholder="List your certifications (one per line)..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="languages">Languages</label>
+                                    <textarea id="languages" class="form-textarea"
+                                        placeholder="e.g., English (Native), Spanish (Fluent)..."></textarea>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-navigation">
+                        <button type="button" id="prevBtn" class="btn btn-secondary" style="display: none;">
+                            ← Previous
+                        </button>
+                        <div class="nav-buttons">
+                            <button type="button" id="nextBtn" class="btn btn-primary">
+                                Next →
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2 class="card-title">Live Preview</h2>
+                </div>
+
+                <!-- Template Selector -->
+                <div class="template-selector">
+                    <div class="template-option active" data-template="modern">
+                        <strong>Modern</strong>
+                        <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">Colorful & Bold
+                        </div>
+                    </div>
+                    <div class="template-option" data-template="classic">
+                        <strong>Classic</strong>
+                        <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">Traditional</div>
+                    </div>
+                    <div class="template-option" data-template="minimal">
+                        <strong>Minimal</strong>
+                        <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">Clean & Simple
+                        </div>
+                    </div>
+                    <div class="template-option" data-template="ats">
+                        <strong>ATS</strong>
+                        <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">Parser Friendly
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV Preview -->
+                <div id="cvPreview" class="cv-preview" data-template="modern">
+                    <div class="cv-header">
+                        <h1 class="cv-name" id="previewName">Your Name</h1>
+                        <p class="cv-title" id="previewTitle">Your Job Title</p>
+                        <div class="cv-contact">
+                            <span id="previewEmail">email@example.com</span>
+                            <span id="previewPhone">+1 234 567 8900</span>
+                            <span id="previewLocation">Location</span>
+                            <span id="previewWebsite">website.com</span>
+                        </div>
+                    </div>
+
+                    <div id="previewSummarySection" class="cv-section" style="display: none;">
+                        <h2 class="cv-section-title">Professional Summary</h2>
+                        <p id="previewSummary" class="cv-item-description"></p>
+                    </div>
+
+                    <div id="previewExperienceSection" class="cv-section" style="display: none;">
+                        <h2 class="cv-section-title">Work Experience</h2>
+                        <div id="previewExperience"></div>
+                    </div>
+
+                    <div id="previewEducationSection" class="cv-section" style="display: none;">
+                        <h2 class="cv-section-title">Education</h2>
+                        <div id="previewEducation"></div>
+                    </div>
+
+                    <div id="previewSkillsSection" class="cv-section" style="display: none;">
+                        <h2 class="cv-section-title">Skills</h2>
+                        <div id="previewSkills" class="cv-skills-list"></div>
+                    </div>
+
+                    <div id="previewCertificationsSection" class="cv-section" style="display: none;">
+                        <h2 class="cv-section-title">Certifications</h2>
+                        <div id="previewCertifications" class="cv-item-description"></div>
+                    </div>
+
+                    <div id="previewLanguagesSection" class="cv-section" style="display: none;">
+                        <h2 class="cv-section-title">Languages</h2>
+                        <div id="previewLanguages" class="cv-item-description"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
