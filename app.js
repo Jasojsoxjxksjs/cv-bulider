@@ -544,6 +544,18 @@ function applyTemplateStyles(template) {
         case 'minimal':
             preview.style.fontFamily = 'Arial, sans-serif';
             break;
+        case 'creative':
+            preview.style.fontFamily = '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif';
+            break;
+        case 'executive':
+            preview.style.fontFamily = '"Times New Roman", Times, serif';
+            break;
+        case 'professional':
+            preview.style.fontFamily = '"Roboto", "Helvetica Neue", Arial, sans-serif';
+            break;
+        case 'ats':
+            preview.style.fontFamily = 'Arial, Helvetica, sans-serif';
+            break;
         default:
             preview.style.fontFamily = 'Inter, sans-serif';
     }
